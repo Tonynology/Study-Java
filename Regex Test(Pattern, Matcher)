@@ -1,0 +1,28 @@
+String continue = "";
+Scanner keyboard = new Scanner(System.in);
+boolean again = true;
+
+while(again) {
+  System.out.println("%nEnter your regex: ");
+  Pattern pattern = Pattern.compile(keyboard.nextLine());
+  
+  System.out.println("Enter input sting to search: ");
+  Matcher matcher = pattern.matcher(keyboard.nextLine());
+  
+  boolean found = false;
+  while (matcher.find()) {
+    System.out.printf("I found the text \"%s\" starting at " +
+      "index %d and ending at index %d.%n",
+       matcher.group(), matcher.start(), matcher.end());
+    found = true;
+  }
+  if(!found) {
+  System.out.println("No match found");
+  }
+  System.out.println("Continue?(Y/N");
+  continue = keyboard.nextLine().toUpperCase().trim();
+  if(continue.isEmpty() || continue.substring(0,1).equal("Y"))      //substring(int startindex, int endindex) -> inclusive, exclusive
+    again = true;
+  else
+    again = false;
+}
