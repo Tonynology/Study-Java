@@ -26,3 +26,6 @@ while(again) {
   else
     again = false;
 }
+
+
+For more understandable example -> https://docs.oracle.com/javase/tutorial/essential/regex/quant.html
